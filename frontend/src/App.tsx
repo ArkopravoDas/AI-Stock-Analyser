@@ -8,7 +8,7 @@ function App() {
       <ThemeProvider mode="light">
         <C1Chat
           apiUrl={import.meta.env.VITE_API_URL}
-          agentName="AI Stock Assistant"
+          agentName="AI Stock Analyser"
         />
       </ThemeProvider>
     </div>
