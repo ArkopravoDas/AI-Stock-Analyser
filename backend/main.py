@@ -19,6 +19,14 @@ load_dotenv()
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # OK for demo; restrict later
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 model = ChatOpenAI(
     model="c1/openai/gpt-5/v-20250930",
     base_url="https://api.thesys.dev/v1/embed/",
@@ -94,5 +102,5 @@ async def chat(request: RequestObject):
                                  'Connection': 'keep-alive',
                              })
 
-if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8888)
+# if __name__ == '__main__':
+#     uvicorn.run(app, host='0.0.0.0', port=8888)
